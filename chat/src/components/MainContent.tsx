@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { User, Bot } from "lucide-react";
+import ReactMarkdown from 'react-markdown';
 
 interface Message {
   id: string;
@@ -18,51 +19,40 @@ export const MainContent = ({ messages }: MainContentProps) => {
     <div className="h-full p-6 max-w-5xl mx-auto">
       <div className="space-y-6">
         <h1 className="text-3xl font-bold text-foreground leading-tight">
-          The Future of AI Memory: Why Your Chatbot Still Has the Memory of a Goldfish
+          Smart Tracker: Professional System for Tracking Legislative Processes
         </h1>
 
         <div className="bg-accent rounded-lg p-6 border border-primary/20">
           <p className="text-accent-foreground leading-relaxed">
-            Current AI models, particularly large language models (LLMs) like those powering
-            popular chatbots, exhibit significant limitations in their memory capabilities. While they
-            can process and generate human-like text within a given context window, their ability
-            to retain information across conversations or even within a single, extended dialogue
-            is restricted. This "goldfish memory" phenomenon stems from the underlying
-            architecture of these models, which are primarily designed for in-context learning
-            rather than long-term information storage and retrieval.
+            Smart Tracker is a professional system designed for tracking legislative processes within the Polish legal system, featuring an advanced legal document comparison tool called Legal Diff. The platform monitors the progress of draft acts through various stages of the legislative process, from initial proposals to final committee reviews. In the example shown, it tracks the draft act on artificial intelligence systems, designated as UC71.
+          </p>
+          <p className="text-accent-foreground leading-relaxed mt-4">
+            The legislative process is divided into nine main stages: project proposal, harmonization, public consultations, and review processes within committees of the Council of Ministers including the Committee for Digitalization, Committee for European Affairs, Social Committee, Economic Committee, and the Standing Committee of the Council of Ministers. Each stage displays the date of last modification, allowing for real-time progress tracking.
+          </p>
+          <p className="text-accent-foreground leading-relaxed mt-4">
+            A key feature is the Legal Diff tool for analyzing differences between document versions. For instance, comparing Version A from the European Affairs Committee stage with Version B from the Standing Committee stage reveals significant changes: the supervisory body name changed from "Commission for the Development of Artificial Intelligence" to "Commission for the Development and Security of Artificial Intelligence". The chairman appointment procedure was modified to be appointed by the Prime Minister on proposal from the minister for digital affairs. Administrative financial penalties were increased from 15 million euros to 35 million euros, or from 3% to 7% of global annual turnover, whichever is higher.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mt-8">
+        <div className="grid md:grid-cols-2 gap-6 mt-8">
           <div>
             <h3 className="font-semibold text-primary mb-3">Topics</h3>
             <ul className="space-y-2 text-sm text-foreground">
-              <li>• Artificial Intelligence</li>
-              <li>• Large Language Models (LLMs)</li>
-              <li>• AI Memory Limitations</li>
-              <li>• Context Windows</li>
-              <li>• Future of Conversational AI</li>
+              <li>• Legislative Process Tracking</li>
+              <li>• AI Systems Regulation</li>
+              <li>• Legal Document Comparison</li>
+              <li>• Polish Government Procedures</li>
+              <li>• Artificial Intelligence Law</li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold text-primary mb-3">Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a href="https://pipecat.ai" className="text-primary hover:underline">
-                  https://pipecat.ai
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-semibold text-primary mb-3">Companies Concerned</h3>
+            <h3 className="font-semibold text-primary mb-3">Institutions Concerned</h3>
             <ul className="space-y-2 text-sm text-foreground">
-              <li>• OpenAI</li>
-              <li>• Google</li>
-              <li>• Meta</li>
-              <li>• Anthropic</li>
+              <li>• Council of Ministers</li>
+              <li>• Ministry of Digital Affairs</li>
+              <li>• Committee for European Affairs</li>
+              <li>• Standing Committee of the Council of Ministers</li>
             </ul>
           </div>
         </div>
@@ -71,16 +61,19 @@ export const MainContent = ({ messages }: MainContentProps) => {
           <h3 className="font-semibold text-primary mb-3">Keywords</h3>
           <div className="flex flex-wrap gap-2">
             <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">
-              #AIMemory
+              #SmartTracker
             </Badge>
             <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">
-              #LLM
+              #AILaw
             </Badge>
             <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">
-              #Chatbots
+              #LegislativeTracking
             </Badge>
             <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">
-              #AI
+              #LegalDiff
+            </Badge>
+            <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">
+              #PolishGovernment
             </Badge>
           </div>
         </div>
@@ -127,9 +120,17 @@ export const MainContent = ({ messages }: MainContentProps) => {
                             {message.timestamp.toLocaleTimeString()}
                           </span>
                         </div>
-                        <p className="text-sm leading-relaxed whitespace-pre-wrap">
-                          {message.content}
-                        </p>
+                        {message.role === "user" ? (
+                          <p className="text-sm leading-relaxed whitespace-pre-wrap">
+                            {message.content}
+                          </p>
+                        ) : (
+                          <div className="text-sm leading-relaxed prose prose-sm max-w-none">
+                            <ReactMarkdown>
+                              {message.content}
+                            </ReactMarkdown>
+                          </div>
+                        )}
                       </div>
                     </Card>
                   </div>

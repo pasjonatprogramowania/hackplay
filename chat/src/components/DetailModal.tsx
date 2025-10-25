@@ -39,6 +39,19 @@ export const DetailModal = ({ tool, onClose }: DetailModalProps) => {
       );
     }
 
+    if (tool.id === "compare") {
+      return (
+        <div className="h-full">
+          <iframe
+            src="https://lawdiff-explorer.lovable.app/"
+            className="w-full h-full border-0 rounded-lg"
+            title="LawDiff Explorer"
+            allow="geolocation; microphone; camera; midi; encrypted-media;"
+          />
+        </div>
+      );
+    }
+
     if (tool.id === "video") {
       const images = [
         { original: "/data/presentation/file_page-0001.jpg", thumbnail: "/data/presentation/file_page-0001.jpg" },
@@ -53,17 +66,19 @@ export const DetailModal = ({ tool, onClose }: DetailModalProps) => {
       ];
 
       return (
-        <div className="h-full flex flex-col">
-          <div className="text-center mb-4">
-            <Icon className="h-8 w-8 text-primary inline-block mr-2" />
-            <h3 className="text-lg font-semibold inline">{tool.name}</h3>
-          </div>
-          <div className="flex-1 overflow-auto border rounded-lg bg-white">
-            <ImageGallery
-              items={images}
-              autoPlay={true}
-              slideInterval={3000}
-            />
+        <div className="flex items-center justify-center h-full">
+          <div className="w-full h-full flex flex-col">
+            <div className="text-center mb-4">
+              <Icon className="h-8 w-8 text-primary inline-block mr-2" />
+              <h3 className="text-lg font-semibold inline">{tool.name}</h3>
+            </div>
+            <div className="flex-1 overflow-auto border rounded-lg bg-white">
+              <ImageGallery
+                items={images}
+                autoPlay={true}
+                slideInterval={3000}
+              />
+            </div>
           </div>
         </div>
       );
@@ -86,20 +101,8 @@ export const DetailModal = ({ tool, onClose }: DetailModalProps) => {
 
   return (
     <Dialog open={true} onOpenChange={onClose}>
-      <DialogContent className={`${tool.id === 'video' ? 'max-w-5xl' : 'max-w-3xl'} ${tool.id === 'video' ? 'h-[85vh]' : 'h-[70vh]'}`}>
-        <DialogHeader>
-          <DialogTitle className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Icon className="h-5 w-5 text-primary" />
-              <span>{tool.name}</span>
-            </div>
-            <Button variant="ghost" size="icon" onClick={onClose}>
-              <X className="h-4 w-4" />
-            </Button>
-          </DialogTitle>
-        </DialogHeader>
-
-        <div className="flex-1 overflow-auto border rounded-lg bg-accent/30 p-4">
+      <DialogContent className={`${tool.id === 'compare' ? 'max-w-full h-screen' : tool.id === 'video' ? 'max-w-6xl' : tool.id === 'audio' ? 'max-w-4xl' : 'max-w-3xl'} ${tool.id === 'compare' ? '' : tool.id === 'video' ? 'h-[95vh]' : tool.id === 'audio' ? 'h-[80vh]' : 'h-[70vh]'}`}>
+        <div className={`${tool.id === 'compare' ? 'flex-1' : tool.id === 'audio' || tool.id === 'video' ? 'flex items-center justify-center h-full' : 'flex-1 overflow-auto border rounded-lg bg-accent/30 p-4'}`}>
           {renderContent()}
         </div>
       </DialogContent>

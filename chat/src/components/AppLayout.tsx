@@ -18,7 +18,7 @@ export const AppLayout = () => {
   const [rightPanelOpen, setRightPanelOpen] = useState(true);
   const [messages, setMessages] = useState<Message[]>([]);
 
-  const handleSendMessage = (content: string) => {
+  const handleSendMessage = async (content: string) => {
     const userMessage: Message = {
       id: Date.now().toString(),
       role: "user",
@@ -28,16 +28,40 @@ export const AppLayout = () => {
 
     setMessages((prev) => [...prev, userMessage]);
 
-    // Simulate LLM response
-    setTimeout(() => {
+    try {
+      const response = await fetch('http://10.19.200.222:5001/api/ask', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          question: content,
+          top_k: 10
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
-        content: "This is a placeholder response from the LLM model. In a full implementation, this would be replaced with actual AI-generated content based on your query and the context of the documents in the Source Materials panel.",
+        content: data.answer || "I couldn't generate a response at this time.",
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, assistantMessage]);
-    }, 1000);
+    } catch (error) {
+      console.error('Error calling API:', error);
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        role: "assistant",
+        content: "Sorry, I encountered an error while processing your request. Please make sure the chat-rag server is running on port 5001.",
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+    }
   };
 
   return (

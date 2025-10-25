@@ -13,7 +13,6 @@ const mockSources: SourceItem[] = [
   { id: "1", type: "pdf", name: "2103.17280v1.pdf" },
   { id: "2", type: "pdf", name: "2303.14630v1.pdf" },
   { id: "3", type: "pdf", name: "2309.06180v1.pdf" },
-  { id: "4", type: "link", name: "GitHub - pipecat-ai/smart-turn", url: "https://github.com/pipecat-ai/smart-turn" },
 ];
 
 export const LeftPanel = () => {

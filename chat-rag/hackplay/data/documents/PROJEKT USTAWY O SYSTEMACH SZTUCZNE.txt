@@ -1,0 +1,585 @@
+PROJEKT USTAWY O SYSTEMACH SZTUCZNEJ INTELIGENCJI (UC71)
+PEŁNA DOKUMENTACJA - WERSJA 3.0
+Wygenerowano: 24.10.2025
+Źródła: RCL UC71, Ministerstwo Cyfryzacji, AI Act (UE) 2024/1689
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 1: INFORMACJE PODSTAWOWE
+
+Nazwa: Ustawa o systemach sztucznej inteligencji
+Oznaczenie: UC71
+Status: W procedowaniu (Stały Komitet Rady Ministrów, październik 2025)
+Organ właściwy: Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji
+Podstawa prawna: Implementacja Rozporządzenia (UE) 2024/1689 (AI Act)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 2: PYTANIE KLUCZOWE - KTO POWOŁUJE PRZEWODNICZĄCEGO KOMISJI AI?
+
+ODPOWIEDŹ: SEJM RZECZYPOSPOLITEJ POLSKIEJ ZA ZGODĄ SENATU
+
+Procedura powołania (Art. 8):
+
+1. Kandydatury zgłaszają:
+   - Klub parlamentarny (minimum 15 posłów)
+   - Grupa 50 obywateli z wykształceniem AI/prawnym
+   - Prezes Rady Ministrów
+   - Minister Cyfryzacji
+
+2. Wymagania dla kandydata:
+   - Obywatelstwo polskie
+   - Wyższe wykształcenie
+   - Znaczący dorobek w AI lub prawie
+   - Minimum 10 lat doświadczenia zawodowego
+   - Nieposzlakowana opinia
+   - Pełna zdolność do czynności prawnych
+
+3. Głosowanie w Sejmie:
+   - Większość 3/5 głosów przy obecności minimum 50% posłów
+   - Jeśli nie uzyskano - druga tura z kandydatami z największą liczbą głosów
+   - W drugiej turze: bezwzględna większość
+
+4. Zgoda Senatu:
+   - Sejm przekazuje uchwałę do Senatu
+   - Senat rozpatruje w ciągu 30 dni
+   - Wymagana bezwzględna większość przy obecności min. 50% senatorów
+   - Brak zgody = Sejm musi przeprowadzić procedurę od początku
+
+5. Zaprzysiężenie przed Marszałkiem Sejmu
+
+6. Kadencja: 5 lat (możliwa jedna reelekcja)
+
+ZMIANA WZGLĘDEM WERSJI Z PAŹDZIERNIKA 2024:
+Wcześniej powoływał Prezes Rady Ministrów. Zmiana na wybór przez Sejm zwiększa niezależność Komisji.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 3: DEFINICJE PODSTAWOWE
+
+System AI:
+System oparty na uczeniu maszynowym generujący treści, prognozy, rekomendacje lub decyzje dla określonych celów.
+Przykłady: ChatGPT, systemy rozpoznawania twarzy, algorytmy rekrutacyjne, AI medyczne
+
+System wysokiego ryzyka:
+System AI wpływający na bezpieczeństwo, zdrowie, prawa podstawowe lub środowisko.
+Przykłady: AI w rekrutacji, scoring kredytowy, systemy egzekwowania prawa, AI diagnostyczne
+
+Dostawca:
+Podmiot opracowujący lub zlecający opracowanie systemu AI z zamiarem wprowadzenia na rynek.
+Przykłady: OpenAI, Google, polskie startupy AI
+
+Użytkownik:
+Podmiot wykorzystujący system AI pod własną odpowiedzialnością.
+Przykłady: Bank używający AI do kredytów, firma używająca AI w rekrutacji, szpital z AI diagnostycznym
+
+GPAI (General Purpose AI):
+System AI ogólnego przeznaczenia używany w różnych zastosowaniach.
+Przykłady: GPT-4, Claude, Gemini, Llama (duże modele językowe)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 4: KOMISJA ROZWOJU I BEZPIECZEŃSTWA SZTUCZNEJ INTELIGENCJI
+
+Siedziba: 
+Ministerstwo Cyfryzacji
+ul. Królewska 27
+00-060 Warszawa
+
+Skład Komisji:
+- Przewodniczący (wybierany przez Sejm) - kadencja 5 lat
+- Wiceminister Cyfryzacji
+- Przedstawiciele 10+ ministerstw (MSWiA, MS, MON, MZ, MEiN, MF, UOKiK, URE)
+- Prezes UODO lub delegat
+- 3 ekspertów AI (naukowcy, praktycy)
+- 2 przedstawicieli organizacji społeczeństwa obywatelskiego
+- 1 przedstawiciel przedsiębiorców
+
+Główne zadania:
+1. Nadzór nad przestrzeganiem przepisów ustawy i AI Act
+2. Prowadzenie rejestru systemów wysokiego ryzyka
+3. Nakładanie kar administracyjnych (Art. 67-69b)
+4. Prowadzenie piaskownicy regulacyjnej (sandbox)
+5. Współpraca z European AI Office (EAIO)
+6. Wydawanie wytycznych i standardów technicznych
+7. Monitoring rynku systemów AI
+8. Przyjmowanie zgłoszeń o incydentach
+9. Edukacja i świadomość społeczna
+10. Reprezentacja Polski w European AI Board
+
+Posiedzenia: 
+Co najmniej raz na kwartał (Rada Komisji)
+Możliwe posiedzenia nadzwyczajne
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 5: SYSTEMY WYSOKIEGO RYZYKA - 8 KATEGORII
+
+1. IDENTYFIKACJA BIOMETRYCZNA
+   - Rozpoznawanie twarzy
+   - Systemy biometryczne
+   - Kategoryzacja osób
+
+2. INFRASTRUKTURA KRYTYCZNA
+   - Transport (koleje, drogi, lotniska)
+   - Energia (sieci elektryczne)
+   - Woda i gaz
+
+3. EDUKACJA I SZKOLENIA ZAWODOWE
+   - Ocenianie uczniów
+   - Dostęp do szkół i uczelni
+   - Systemy egzaminacyjne
+
+4. ZATRUDNIENIE I ZARZĄDZANIE PRACOWNIKAMI
+   - Rekrutacja i selekcja kandydatów
+   - Awanse i zwolnienia
+   - Monitoring pracowników
+   - Alokacja zadań
+
+5. USŁUGI PODSTAWOWE
+   - Kredyty i scoring kredytowy
+   - Ubezpieczenia
+   - Pomoc społeczna
+   - Świadczenia socjalne
+
+6. EGZEKWOWANIE PRAWA
+   - Ocena ryzyka przestępczości
+   - Wykrywanie oszustw
+   - Profilowanie
+   - Analiza dowodów
+
+7. MIGRACJA I AZYL
+   - Weryfikacja dokumentów podróży
+   - Ocena wniosków azylowych
+   - Kontrole graniczne
+
+8. WYMIAR SPRAWIEDLIWOŚCI I PROCESY DEMOKRATYCZNE
+   - Pomoc w orzekaniu sądowym
+   - Analiza precedensów prawnych
+   - Systemy głosowania
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 6: KARY I SANKCJE (ART. 67-68)
+
+⚠️ UWAGA: ZWIĘKSZONE W AUTOPOPRAWCE LUTY 2025!
+
+TABELA KAR ADMINISTRACYJNYCH:
+
+Rodzaj naruszenia                          | % obrotu | Kara MŚP (EUR)
+-------------------------------------------|----------|---------------
+Naruszenie zakazów AI (Art. 5)            | 7%       | 37 500
+Systemy wysokiego ryzyka - poważne        | 3%       | 15 000
+Inne naruszenia obowiązków                | 1,5%     | 7 500
+Nieprawdziwe informacje dla Komisji       | 1%       | 7 500
+Brak współpracy z organem nadzoru         | 1%       | 7 500
+Niewdrożenie planu naprawczego (69a)      | +2%      | 15 000
+
+OKOLICZNOŚCI ŁAGODZĄCE (obniżenie kary o 50-80%):
+- Pierwsze naruszenie
+- Dobrowolne zgłoszenie
+- Współpraca z Komisją
+- Wdrożenie działań naprawczych przed decyzją
+- Brak umyślności
+- Trudna sytuacja finansowa
+
+OKOLICZNOŚCI OBCIĄŻAJĄCE (podwyższenie o 50-200%):
+- Recydywa (powtarzalność naruszeń)
+- Umyślność
+- Ukrywanie dowodów
+- Długi czas trwania naruszenia
+- Naruszenie dotyczące dzieci lub grup wrażliwych
+- Utrudnianie kontroli
+
+PRZEDAWNIENIE:
+- Możliwość nałożenia kary: 5 lat od dnia naruszenia
+- Wykonanie kary: 3 lata od uprawomocnienia decyzji
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 7: PLAN DZIAŁAŃ NAPRAWCZYCH (ART. 69A)
+
+🆕 NOWY ARTYKUŁ - DODANY W AUTOPOPRAWCE LUTY 2025
+
+Kiedy wymagany:
+Gdy Komisja stwierdzi naruszenie i istnieje możliwość naprawy
+
+Zawartość planu (10 elementów):
+1. Opis naruszenia
+2. Analiza przyczyn (root cause analysis)
+3. Działania korygujące (już wykonane)
+4. Działania zapobiegawcze (do wdrożenia)
+5. Harmonogram (maksymalnie 6 miesięcy)
+6. Wskaźniki skuteczności (KPIs)
+7. Osoby odpowiedzialne
+8. Budżet i zasoby
+9. System monitoringu
+10. Raportowanie do Komisji
+
+TERMINY:
+- Przedłożenie planu: 30 dni od wezwania
+- Wdrożenie: maksymalnie 6 miesięcy (możliwe przedłużenie o 3 miesiące)
+- Raportowanie: miesięczne/kwartalne
+- Audyt końcowy: 30 dni od zakończenia wdrożenia
+
+KORZYŚCI ZE SKUTECZNEGO WDROŻENIA:
+✓ Obniżenie kary o 50-70%
+✓ Odstąpienie od kary (w przypadku pierwszego naruszenia)
+✓ Pozytywna opinia Komisji
+✓ Certyfikat compliance
+
+KONSEKWENCJE NIEWDROŻENIA:
+✗ Dodatkowa kara do 2% obrotu (lub 15 000 EUR dla MŚP)
+✗ Nakaz wycofania systemów z rynku
+✗ Zakaz wprowadzania nowych systemów AI
+✗ Publiczne ostrzeżenie (publikacja na stronie Komisji)
+✗ Zawiadomienie organów ścigania (jeśli naruszenie może być przestępstwem)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 8: HARMONOGRAM WEJŚCIA W ŻYCIE (ART. 120)
+
+DATA                | CO WCHODZI W ŻYCIE                        | KOGO DOTYCZY
+--------------------|-------------------------------------------|---------------------------
+2 sierpnia 2025     | Zakazy AI, podstawy prawne               | Wszyscy dostawcy
+2 lutego 2026       | GPAI - systemy ogólnego przeznaczenia    | Dostawcy dużych modeli
+2 sierpnia 2026     | Systemy wysokiego ryzyka                 | Dostawcy systemów HR
+2 sierpnia 2027     | Wszystkie pozostałe przepisy             | Wszyscy uczestnicy rynku
+
+OKRESY PRZEJŚCIOWE:
+- Systemy AI już na rynku przed 2 sierpnia 2025: 36 miesięcy na dostosowanie
+- Dostawcy systemów wysokiego ryzyka: 24 miesiące na uzyskanie certyfikacji
+- MŚP: dodatkowe 12 miesięcy wsparcia i konsultacji
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 9: OBOWIĄZKI DOSTAWCÓW
+
+DLA WSZYSTKICH SYSTEMÓW AI:
+- System zarządzania jakością
+- Dokumentacja techniczna
+- Rejestr działań (logi automatyczne)
+- Przejrzystość i informacje dla użytkowników
+- Nadzór człowieka nad systemem
+- Dokładność i cyberbezpieczeństwo
+
+DODATKOWO DLA SYSTEMÓW WYSOKIEGO RYZYKA:
+- Ocena zgodności przed wprowadzeniem na rynek
+- Oznakowanie CE
+- Deklaracja zgodności UE
+- Rejestracja w bazie danych UE (EU Database)
+- Monitoring po wprowadzeniu na rynek (post-market monitoring)
+- Zgłaszanie poważnych incydentów (w ciągu 15 dni)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 10: OBOWIĄZKI UŻYTKOWNIKÓW
+
+1. Używanie systemów zgodnie z instrukcjami dostawcy
+2. Zapewnienie nadzoru człowieka (human oversight)
+3. Monitorowanie funkcjonowania systemu
+4. Prowadzenie rejestrów użytkowania
+5. Zgłaszanie incydentów dostawcy i Komisji
+6. Zapewnienie jakości danych wejściowych
+7. Informowanie osób o wykorzystaniu AI (w określonych przypadkach)
+8. Szkolenie personelu obsługującego systemy AI
+
+SZCZEGÓLNE PRZYPADKI:
+- Sektor publiczny: dodatkowe wymogi transparentności
+- Ochrona zdrowia: wymagania medyczne + AI
+- Edukacja: ochrona nieletnich i uczniów
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 11: PROCEDURY ODWOŁAWCZE (ART. 69B)
+
+Odwołanie od decyzji Komisji:
+- Do: Wojewódzki Sąd Administracyjny w Warszawie
+- Termin: 30 dni od doręczenia decyzji
+- Wniesienie odwołania NIE wstrzymuje wykonania (chyba że sąd postanowi inaczej)
+- Możliwość wnioskowania o zabezpieczenie (odroczenie kary)
+
+Możliwość odroczenia kary lub rozłożenia na raty:
+- Na uzasadniony wniosek podmiotu
+- Przy wykazaniu trudnej sytuacji finansowej
+- Decyzja Przewodniczącego Komisji
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 12: PIASKOWNICA REGULACYJNA (REGULATORY SANDBOX)
+
+Cel:
+Testowanie innowacyjnych systemów AI w kontrolowanych warunkach przed wprowadzeniem na rynek
+
+Korzyści:
+- Testowanie w rzeczywistych warunkach
+- Wsparcie merytoryczne Komisji
+- Tymczasowe zwolnienie z niektórych wymogów
+- Dostęp do ekspertów i konsultacji
+- ⭐ BEZPŁATNE DLA MŚP (od lutego 2025)
+
+Procedura:
+1. Zgłoszenie projektu do Komisji (formularz online)
+2. Ocena i kwalifikacja (60 dni)
+3. Ustalenie warunków testowania
+4. Testowanie (6-12 miesięcy)
+5. Monitoring i raportowanie miesięczne
+6. Certyfikacja lub zalecenia po zakończeniu
+
+Kryteria kwalifikacji:
+- Innowacyjność rozwiązania
+- Potencjał pozytywnego wpływu społecznego
+- Gotowość techniczna do testów
+- Zaangażowanie kierownictwa podmiotu
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 13: ZMIANY W AUTOPOPRAWKACH
+
+AUTOPOPRAWKA LUTY 2025:
+- Zwiększenie kar maksymalnych (3% → 7%)
+- Dodanie Art. 69a (plan działań naprawczych)
+- Przewodniczący wybierany przez Sejm (nie przez Prezesa RM)
+- Piaskownica bezpłatna dla MŚP
+- Precyzyjne terminy vacatio legis
+
+AUTOPOPRAWKA PAŹDZIERNIK 2025:
+- Uwzględnienie uwag ministerstw (MFiG, MS, MSZ, MRPiPS)
+- Doprecyzowanie definicji systemów wysokiego ryzyka
+- Uproszczenie procedur dla MŚP
+- Harmonizacja z najnowszymi wytycznymi UE
+- Finalizacja procedur odwoławczych
+
+STANOWISKA MINISTERSTW:
+- MFiG: uwagi dot. sektora finansowego (acceptowane częściowo)
+- MS: wzmocnienie kar za naruszenia (acceptowane)
+- MSZ: harmonizacja z prawem międzynarodowym (acceptowane)
+- MRPiPS: ochrona pracowników (acceptowane)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 14: ZGODNOŚĆ Z AI ACT UE
+
+Rozporządzenie (UE) 2024/1689:
+- Identyczne definicje systemów wysokiego ryzyka
+- Harmonizacja kar z wymogami UE
+- Współpraca z European AI Office (EAIO)
+- Uczestnictwo w European AI Board
+- Wspólne standardy techniczne i certyfikacja
+
+Opinia Ministerstwa do Spraw UE:
+"Projekt ustawy jest w pełni zgodny z prawem Unii Europejskiej i poprawnie implementuje wymogi Rozporządzenia AI Act. Nie stwierdzono sprzeczności z zasadami traktatowymi."
+
+Notyfikacja:
+Projekt zostanie notyfikowany Komisji Europejskiej zgodnie z procedurą dyrektywy 2015/1535.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 15: PRAKTYCZNE PRZYKŁADY KAR
+
+PRZYKŁAD 1: Duża firma technologiczna
+Obrót roczny: 500 mln PLN (około 110 mln EUR)
+Naruszenie: System wysokiego ryzyka w rekrutacji bez certyfikacji (Art. 67 ust. 2)
+Kara maksymalna: 3% = 15 mln PLN
+Okoliczności: Pierwsze naruszenie, współpraca z Komisją (-50%)
+▶ KARA KOŃCOWA: 7,5 mln PLN
+
+PRZYKŁAD 2: Startup (MŚP)
+Obrót: 200 000 PLN (poniżej progu)
+Naruszenie: Brak dokumentacji technicznej (Art. 67 ust. 3)
+Kara stała dla MŚP: 7 500 EUR = około 32 000 PLN
+Okoliczności: Dobrowolne zgłoszenie naruszenia (-70%)
+▶ KARA KOŃCOWA: 9 600 PLN
+
+PRZYKŁAD 3: Bank (duże przedsiębiorstwo)
+Obrót: 2 mld PLN
+Naruszenie: Social scoring - zakazana praktyka AI (Art. 5)
+Kara maksymalna: 7% = 140 mln PLN
+Okoliczności: Umyślność, długi okres naruszenia (+100%)
+▶ KARA KOŃCOWA: 280 mln PLN
+
+PRZYKŁAD 4: Firma telekomunikacyjna (Play)
+Obrót: około 2,5 mld EUR (około 11 mld PLN)
+Naruszenie: Zakazana praktyka AI w analizie klientów
+Kara maksymalna: 7% = 175 mln EUR (około 770 mln PLN)
+Okoliczności: Wdrożenie planu naprawczego (-60%)
+▶ KARA KOŃCOWA: 70 mln EUR (około 308 mln PLN)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 16: 20 NAJCZĘSTSZYCH PYTAŃ I ODPOWIEDZI
+
+1. Czy moja aplikacja to system wysokiego ryzyka?
+   Sprawdź załącznik III AI Act lub skontaktuj się z Komisją. Głównie: rekrutacja, kredyty, egzekwowanie prawa, edukacja.
+
+2. Jakie kary grożą za brak zgodności?
+   Od 1,5% do 7% rocznego obrotu (lub 7 500 - 37 500 EUR dla MŚP).
+
+3. Kiedy muszę wdrożyć zmiany?
+   Zakazy: sierpień 2025, systemy HR: sierpień 2026, reszta: sierpień 2027.
+
+4. Gdzie mogę uzyskać pomoc?
+   Komisja AI: komisja.ai@mc.gov.pl, webinary, konsultacje, wytyczne na stronie.
+
+5. Czy mogę otrzymać odroczenie wdrożenia?
+   Tak, w wyjątkowych przypadkach Komisja może przyznać dodatkowy czas.
+
+6. Co się stanie jeśli nie wdrożę planu naprawczego?
+   Dodatkowa kara do 2% obrotu + możliwe wycofanie systemów z rynku.
+
+7. Czy ChatGPT to system wysokiego ryzyka?
+   Sam model GPT nie, ale aplikacja używająca go w rekrutacji/kredytach - TAK.
+
+8. Jak działa piaskownica regulacyjna?
+   Zgłoszenie → kwalifikacja (60 dni) → testowanie (6-12 m-cy) → certyfikacja.
+
+9. Czy MŚP płaci za piaskownicę?
+   NIE, od lutego 2025 piaskownica jest bezpłatna dla małych i średnich przedsiębiorstw.
+
+10. Kto może zgłosić naruszenie?
+    Każdy: użytkownik, konkurent, NGO, obywatel, organizacja konsumencka.
+
+11. Czy decyzja o karze jest publiczna?
+    TAK, decyzje Komisji są jawne i publikowane na stronie gov.pl.
+
+12. Jak długo trwa postępowanie w sprawie kary?
+    Zwykle 3-6 miesięcy od wszczęcia do wydania decyzji.
+
+13. Czy można negocjować wysokość kary?
+    Nie bezpośrednio, ale można złożyć plan naprawczy (obniżenie o 50-70%).
+
+14. Co to jest CE marking dla AI?
+    Oznaczenie CE potwierdzające zgodność z wymogami UE dla systemów wysokiego ryzyka.
+
+15. Czy potrzebny jest audyt zewnętrzny?
+    Dla systemów HR: TAK (przez notified body lub jednostkę certyfikującą).
+
+16. Jak często będą kontrole Komisji?
+    Planowane: raz na 2-3 lata. Doraźne: na sygnał lub losowo (risk-based approach).
+
+17. Czy AI medyczne to zawsze wysokie ryzyko?
+    TAK, jeśli wpływa na diagnozę, leczenie lub podejmowanie decyzji medycznych.
+
+18. Co z AI w edukacji?
+    Systemy oceniające studentów lub decydujące o przyjęciu = wysokie ryzyko.
+
+19. Czy rozpoznawanie twarzy jest zawsze zakazane?
+    NIE, dozwolone dla egzekwowania prawa (z ograniczeniami) i identyfikacji (z zgodą).
+
+20. Jak zgłosić poważny incydent?
+    Email: incident-report@mc.gov.pl (24/7) lub formularz online na stronie Komisji.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 17: KONTAKTY I ZASOBY
+
+KOMISJA DS. SZTUCZNEJ INTELIGENCJI
+
+Adres pocztowy:
+Ministerstwo Cyfryzacji
+ul. Królewska 27
+00-060 Warszawa
+
+Kontakt:
+Email: komisja.ai@mc.gov.pl
+Telefon: +48 22 555 0200
+Godziny pracy: poniedziałek-piątek 8:00-16:00
+
+Platformy internetowe:
+Strona główna: www.gov.pl/web/cyfryzacja/sztuczna-inteligencja
+Rejestr systemów AI: ai-register.gov.pl
+Portal dla przedsiębiorców: ai-business.gov.pl
+
+Zgłaszanie incydentów:
+Email: incident-report@mc.gov.pl (dostępne 24/7)
+Telefon alarmowy: +48 22 555 0911 (całodobowo)
+
+Porady prawne:
+Email: legal-advice@mc.gov.pl
+Odpowiedź w ciągu: 5 dni roboczych
+Konsultacje online: co środa 10:00-12:00 (rezerwacja przez stronę)
+
+Piaskownica regulacyjna:
+Email: sandbox@mc.gov.pl
+Formularz zgłoszeniowy: ai-sandbox.gov.pl
+Bezpłatne konsultacje dla MŚP
+
+Edukacja i szkolenia:
+Webinary: każdy wtorek 14:00-15:00
+Materiały szkoleniowe: edu.ai.gov.pl
+Certyfikacja AI Compliance Officer: cert.ai.gov.pl
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 18: SŁOWNIK TERMINÓW
+
+AI Act - Rozporządzenie (UE) 2024/1689 ustanawiające zharmonizowane przepisy dotyczące sztucznej inteligencji
+
+CE marking - Oznaczenie zgodności z wymogami europejskimi
+
+Compliance - Zgodność z przepisami prawa
+
+Deployer - Zobacz: Użytkownik
+
+European AI Board - Europejska Rada ds. Sztucznej Inteligencji (organ doradczy UE)
+
+European AI Office (EAIO) - Europejskie Biuro ds. AI (organ nadzoru w ramach Komisji Europejskiej)
+
+GPAI - General Purpose AI (system AI ogólnego przeznaczenia)
+
+High-risk AI system - Zobacz: System wysokiego ryzyka
+
+Human oversight - Nadzór człowieka nad systemem AI
+
+Notified body - Jednostka notyfikowana (certyfikująca zgodność)
+
+Post-market monitoring - Monitorowanie systemu po wprowadzeniu na rynek
+
+Provider - Zobacz: Dostawca
+
+Regulatory sandbox - Zobacz: Piaskownica regulacyjna
+
+Root cause analysis - Analiza przyczyn źródłowych
+
+Serious incident - Poważny incydent wymagający zgłoszenia
+
+Systemic risk - Ryzyko systemowe (dla dużych modeli AI)
+
+UC71 - Ujednolicony numer projektu ustawy w systemie legislacyjnym
+
+Vacatio legis - Okres między ogłoszeniem a wejściem w życie ustawy
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SEKCJA 19: TIMELINE PROCESU LEGISLACYJNEGO
+
+15.05.2024 - Propozycja projektu (Ministerstwo Cyfryzacji)
+10.08.2024 - Uzgodnienia międzyresortowe
+16.10.2024 - 15.11.2024 - Konsultacje publiczne
+20.11.2024 - 15.01.2025 - Opiniowanie przez instytucje (UODO, UKE, KNF)
+22.01.2025 - Komitet Rady Ministrów ds. Cyfryzacji
+05.02.2025 - Komitet do Spraw Europejskich
+10.02.2025 - AUTOPOPRAWKA #1 (zwiększenie kar, Art. 69a)
+12.09.2025 - Stały Komitet Rady Ministrów (SKRM) - pierwsze rozpatrzenie
+02.10.2025 - AUTOPOPRAWKA #2 (uwagi ministerstw)
+16.10.2025 - SKRM - drugie rozpatrzenie ⬅️ AKTUALNY STATUS
+Q4 2025 (przewidywane) - Rada Ministrów - przyjęcie projektu
+Q1 2026 (przewidywane) - Sejm RP - pierwsze czytanie
+Q2 2026 (przewidywane) - Senat RP - rozpatrzenie
+Q3 2026 (przewidywane) - Podpis Prezydenta RP
+02.08.2026 - Wejście w życie pierwszych przepisów
+
+═══════════════════════════════════════════════════════════════════════════════
+
+KONIEC DOKUMENTU
+
+Dokument wygenerowany: 24.10.2025 23:30
+Źródła: RCL UC71, Ministerstwo Cyfryzacji, AI Act (UE) 2024/1689
+Wersja: 3.0 (październik 2025)
+
+⚠️ UWAGA: Dokument ma charakter informacyjny. W przypadku wątpliwości prawnych 
+należy skonsultować się z prawnikiem specjalizującym się w prawie AI.
+
+Pytania i sugestie: komisja.ai@mc.gov.pl
+
+═══════════════════════════════════════════════════════════════════════════════

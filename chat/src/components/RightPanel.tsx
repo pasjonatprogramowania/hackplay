@@ -1,4 +1,4 @@
-import { Mic, Video, Share2, GitCompare, FileSearch, FileDiff } from "lucide-react";
+import { Mic, Video, GitCompare } from "lucide-react";
 import { useState } from "react";
 import { DetailModal } from "@/components/DetailModal";
 
@@ -11,10 +11,7 @@ interface StudioTool {
 const studioTools: StudioTool[] = [
   { id: "audio", name: "Audio Summary", icon: Mic },
   { id: "video", name: "Video Summary", icon: Video },
-  { id: "mindmap", name: "Mind Map", icon: Share2 },
   { id: "compare", name: "Compare Docs", icon: GitCompare },
-  { id: "analyze", name: "Analyze Diff", icon: FileSearch },
-  { id: "changes", name: "Track Changes", icon: FileDiff },
 ];
 
 export const RightPanel = () => {

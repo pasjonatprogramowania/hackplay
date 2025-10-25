@@ -1,0 +1,103 @@
+USTAWA z dnia 15 października 2024 r. o systemach sztucznej inteligencji
+
+Rozdział 1 - Przepisy ogólne
+
+Art. 1. [Zakres przedmiotu regulacji]
+Ustawa określa warunki wprowadzania do obrotu, udostępniania w jakikolwiek sposób oraz wykorzystywania systemów sztucznej inteligencji oraz zasady nadzoru nad nimi.
+
+Art. 2. [Definicje]
+Ilekroć w ustawie jest mowa o:
+1) systemie sztucznej inteligencji - rozumie się przez to oprogramowanie stworzone przy użyciu jednej lub większej liczby technik uczenia maszynowego, które może w danym zbiorze danych wykazać zdolność osiągnięcia rezultatów odpowiadających poziomom ludzkiej inteligencji w zakresie rozumowania, planowania, przetwarzania języka naturalnego, percepcji, tworzenia treści i prowadzenia ogólnego rozumowania podczas rozwiązywania problemów;
+2) dostawcy systemie sztucznej inteligencji (AI) - osoba fizyczna, prawna lub jednostka organizacyjna nieposiadająca osobowości prawnej, która rozwija system AI lub modyfikuje system AI opracowany przez inną osobę albo prowadzi prace nad systemem AI, jak również osoba, która wprowadza system AI do obrotu albo udostępnia go w inny sposób;
+3) importerze systemu AI - osobę fizyczną, prawną lub jednostkę organizacyjną nieposiadającą osobowości prawnej, z siedzibą na terytorium Rzeczypospolitej Polskiej, która wprowadza do obrotu system AI pochodzący z państwa trzeciego;
+4) dystrybutorze systemu AI - osobę fizyczną, prawną lub jednostkę organizacyjną nieposiadającą osobowości prawnej, inną niż importer, która udostępnia system AI na rynku;
+5) użytkowniku systemu AI - osobę fizyczną, prawną lub jednostkę organizacyjną nieposiadającą osobowości prawnej, która korzysta z systemu AI;
+6) wprowadzaniu do obrotu - każde udostępnienie przez dostawcę systemu AI po raz pierwszy na rynku Unii Europejskiej, odpłatnie albo nieodpłatnie;
+7) udostępnianiu systemu AI - każde rozprowadzanie systemu AI, które następuje po jego wprowadzeniu do obrotu;
+8) wdrażaniu do eksploatacji - pierwsze wykorzystanie systemu AI do celów operacyjnych przez użytkownika na rynku Unii Europejskiej z zamiarem dalszego wykorzystania.
+
+Rozdział 2 - Zasady klasyfikacji systemu AI
+
+Art. 3. [Klasyfikacja systemów AI według poziomu ryzyka]
+1. Systemy AI są klasyfikowane zgodnie z poziomem ryzyka, jakie mogą generować dla zdrowia ludzkiego, środowiska, praw podstawowych lub innych praw albo wartości chronionych prawem unijnym.
+2. Do systemów AI o niedopuszczalnym ryzyku zalicza się systemy AI, których wykorzystanie zagraża prawom podstawowym osób fizycznych takich jak: prawo do ochrony danych osobowych, prawo do poszanowania życia prywatnego i rodzinnego, prawo do ochrony własności intelektualnej, równość wobec prawa (niedyskryminacja), demokratyczne procedury, rządy prawa, zachowania kulturowe, religijne, środowisko naturalne lub zdrowie i życie osób fizycznych.
+
+Rozdział 3 - Kary i sankcje
+
+Art. 70. [Kary za naruszenia przepisów celem zapewnienia zgodności]
+1. Za naruszenie obowiązku zapewnienia zgodności systemu AI z wymaganiami użytymi dla danego poziomu ryzyka systemy AI nakłada się karę pieniężną na podmioty gospodarcze w wysokości od:
+   a) 35 milionów euro lub 7% rocznego światowego obrotu globalnego przedsiębiorstwa za naruszanie przepisów dotyczących wprowadzania do obrotu lub udostępniania niedopuszczalnych systemów AI;
+   b) 15 milionów euro lub 3% rocznego światowego obrotu globalnego przedsiębiorstwa za naruszanie przepisów dotyczących wprowadzania do obrotu lub udostępniania systemów AI wysokiego ryzyka bez oceny ryzyka lub bez odpowiedniego systemu zarządzania ryzykiem jakości;
+   c) 7,5 miliona euro lub 1,5% rocznego światowego obrotu globalnego przedsiębiorstwa za naruszanie obowiązku informacyjnego;
+   d) 6 milionów euro lub 1,2% rocznego światowego obrotu globalnego przedsiębiorstwa za naruszanie obowiązku rejestracyjnego.
+
+Art. 71. [Kary za nieprowadzenie rejestracji]
+Za nieprowadzenie rejestracji systemów AI przeznaczonych dla celów prawodawczych przez podmioty gospodarcze nakłada się karę pieniężną w wysokości od 6 milionów euro lub 1,2% rocznego światowego obrotu globalnego.
+
+Art. 72. [Kary za niezgodność systemu AI z deklaracją zgodności]
+Za wprowadzanie do obrotu lub udostępnianie systemu AI niespełniającego wymagań, którym powinna odpowiadać deklaracja zgodności CE, nakłada się karę pieniężną na producenta lub jego przedstawiciela w wysokości od 4 milionów euro lub 1% rocznego światowego obrotu globalnego.
+
+Art. 73. [Kary za zaburzanie systemów śledzących]
+Za zaburzanie funkcjonowania systemów technicznych zatrzymanych przez władze do celów prowadzonego dochodzenia lub monitorowania egzekwowania prawa, wykorzystywanych zgodnie z prawem unijnym, nakłada się karę pieniężną w wysokości od 6 milionów euro lub 1,2% rocznego światowego obrotu globalnego.
+
+Art. 74. [Dodatkowe kary za jawne nieprzestrzeganie dla MSP]
+Dla mikropodmiotów gospodarczych oraz małych oraz średnich przedsiębiorstw kary pieniężne są obniżane proporcjonalnie do ich wielkości, liczby klientów i wielkości rynku.
+
+Art. 75. [Wykazywanie decyzji o karach]
+Przed podjęciem decyzji o karze właściwe organ nadzoru zapewnia zgodność kary z zasadą proporcjonalności oraz uwzględnia wszystkie następujące elementy:
+1) charakter, wagę i czas trwania naruszenia;
+2) czy naruszenie było故意owe czy spowodowane nieuwagą;
+3) mierę odpowiedzialności podmiotu gospodarczego;
+4) wielkość podmiot gospodarczego;
+5) szkodę poniesioną przez strony trzecie w wyniku naruszenia;
+6) jakiekolwiek wcześniejsze naruszenia przez podmiot gospodarczy;
+7) środki podjęte przez podmiot gospodarczy w celu dokonania w zakresie maksymalnego zmniejszenia lub naprawienia szkod wpływających na naruszenie.
+
+Rozdział 4 - Organy nadzoru
+
+Art. 76. [Europejska Rada ds. Systemów Sztucznej Inteligencji]
+1. Powołana zostaje Europejska Rada ds. Systemów Sztucznej Inteligencji, w której uczestniczą właściwe organy krajowe nadzoru.
+2. Rada współdziała ze wszystkimi zainteresowanymi stronami oraz stymuluje dialog i współpracę w zakresie innowacji.
+3. Rada koordynuje współpracę na szczeblu unijnym oraz międzynarodowym.
+
+Art. 77. [Nadzór krajowy]
+1. W każdym państwie członkowskim powołuje się jeden właściwy organ krajowy nadzoru.
+2. Organ nadzoru jest odpowiedzialny za monitorowanie BK stosowanie przepisów ustawy oraz za nadzór nad wdrażaniem i egzekwowaniem tych przepisów na szczeblu krajowym.
+3. Organ nadzoru prowadzi wymagane biblioteki danych.
+
+Art. 78. [Kompetencje organów nadzoru]
+Organy nadzoru państw członkowskich:
+1) monitorują wdrażanie i stosowanie wymogów ustawy poprzez kontrole egzekwowania obowiązujące wobec podmiotów gospodarczych lub osób fizycznych;
+2) zbierają i analizują dane dotyczące dostępu do rynku i użytkowania systemów AI;
+3) wykonują obowiązki związane z rejestracją systemów AI przeznaczonych dla celów prawodawczych;
+4) nadzorują zautomatyzowane systemy podejmowania decyzji;
+5) współdziałają z organami nadzoru innego państwa członkowskiego oraz z Komisją Europejską;
+6) zapewniają dostęp do środków naprawczych dla osób fizycznych i użytkowników systemów AI;
+7) przekazują Komisji Europejskiej informacje o identyfikacji systemów AI o niedopuszczalnym ryzyku spoza Unii Europejskiej wpływających na rynek UE.
+
+Rozdział 5 - Procedury postępowania administracyjnego
+
+Art. 90. [Procedura ostrzeżeniowa]
+1. Przed podjęciem decyzji o nałożeniu wysokiej lub maksymalnej kary właściwy organ nadzoru wydaje ostrzeżenie na piśmie wobec podmiotu gospodarczego lub użytkownika.
+2. Ostrzeżenie określa naruszenie oraz termin jego usunięcia.
+
+Art. 91. [Procedura wewnątrzwspólnotowej kontroli rynku]
+1. Właściwe organy nadzoru przeprowadzą wspólną ocenę uruchomioną przez Komisję Europejską.
+2. Współpraca obejmuje oficjalne kontrole rynku oraz inne działania nadzorcze, bez konieczności wcześniejszego powiadomienia.
+
+Art. 92. [Współpraca administracyjna]
+Organy nadzoru państw członkowskich oraz Komisja Europejska współdziałają ze sobą i z Europejską Radą ds. Systemów AI w zakresie:
+1) wymiany informacji o najlepszych praktykach;
+2) wspólnych programów szkolenia;
+
+Rozdział 6 - Terminy i wejście w życie
+
+Art. 113. [Wejście w życie]
+1. Ustawa wchodzi w życie dwudziestego dnia po ogłoszeniu w Dzienniku Urzędowym Unii Europejskiej.
+2. Od dnia 2 sierpnia 2026 r. zabronione jest wprowadzanie do obrotu lub udostępnianie systemów AI o niedopuszczalnym ryzyku.
+3. Od dnia 2 sierpnia 2027 r. zabronione jest wprowadzanie do obrotu lub udostępnianie systemów AI przeznaczonych dla celów prawodawczych bez obowiązkowej szczegółowej analizy danych szkoleniowych.
+4. Od dnia 2 maja 2026 r. wymagane jest oznaczanie treści wygenerowanych sztuczną inteligencją.
+
+Art. 114. [Przepisy przejściowe]
+1. Systemy AI wprowadzone do obrotu lub wdrożone do eksploatacji przed dniem wejścia w życie niniejszej ustawy mogą być dostarczane lub dalej wykorzystywane bez konieczności zapewnienia zgodności z wymaganiami ustawy do dnia 2 sierpnia 2027 r.
+2. Dostawcy systemów AI wprowadzonych do obrotu lub użytkowników systemów AI wdrożonych do eksploatacji przed dniem 2 sierpnia 2027 r. zobowiązani są do prowadzenia rejestrów wszelkich incydentów i nieprawidłowości związanych z bezpieczeństwem lub kluczowymi wartościami chronionymi.
