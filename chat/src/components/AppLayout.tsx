@@ -29,7 +29,7 @@ export const AppLayout = () => {
     setMessages((prev) => [...prev, userMessage]);
 
     try {
-      const response = await fetch('http://10.19.200.222:5001/api/ask', {
+      const response = await fetch('http://localhost:5001/api/ask', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ export const AppLayout = () => {
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
-        content: data.answer || "I couldn't generate a response at this time.",
+        content: data.answer || "Nie udało się wygenerować odpowiedzi.",
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, assistantMessage]);
@@ -57,7 +57,7 @@ export const AppLayout = () => {
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
-        content: "Sorry, I encountered an error while processing your request. Please make sure the chat-rag server is running on port 5001.",
+        content: "Przepraszam, wystąpił błąd podczas przetwarzania żądania. Upewnij się, że serwer chat-rag działa na porcie 5001.",
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, errorMessage]);
@@ -78,16 +78,16 @@ export const AppLayout = () => {
             {leftPanelOpen ? (
               <>
                 <PanelLeftClose className="h-4 w-4" />
-                <span className="hidden sm:inline">Hide Sources</span>
+                <span className="hidden sm:inline">Ukryj źródła</span>
               </>
             ) : (
               <>
                 <PanelLeftOpen className="h-4 w-4" />
-                <span className="hidden sm:inline">Show Sources</span>
+                <span className="hidden sm:inline">Pokaż źródła</span>
               </>
             )}
           </Button>
-          <h1 className="text-lg font-semibold">AI Research Assistant</h1>
+          <h1 className="text-lg font-semibold">Asystent Badań AI</h1>
         </div>
         
         <div className="flex items-center gap-3">
@@ -105,12 +105,12 @@ export const AppLayout = () => {
           >
             {rightPanelOpen ? (
               <>
-                <span className="hidden sm:inline">Hide Studio</span>
+                <span className="hidden sm:inline">Ukryj studio</span>
                 <PanelRightClose className="h-4 w-4" />
               </>
             ) : (
               <>
-                <span className="hidden sm:inline">Show Studio</span>
+                <span className="hidden sm:inline">Pokaż studio</span>
                 <PanelRightOpen className="h-4 w-4" />
               </>
             )}
@@ -132,11 +132,13 @@ export const AppLayout = () => {
         {/* Main Content */}
         <main className="flex-1 flex flex-col overflow-hidden">
           <div className="flex-1 overflow-y-auto">
-            <MainContent messages={messages} />
+            <MainContent messages={messages} onSend={handleSendMessage} />
           </div>
-          <div className="border-t border-border bg-card p-4 flex-shrink-0">
-            <ChatInput onSend={handleSendMessage} />
-          </div>
+          {messages.length > 0 && (
+            <div className="border-t border-border bg-card p-4 flex-shrink-0">
+              <ChatInput onSend={handleSendMessage} />
+            </div>
+          )}
         </main>
 
         {/* Right Panel */}

@@ -26,14 +26,25 @@ import {
   Cpu,
   BarChart3,
   Tag,
-  Check
+  Check,
+  Activity,
+  Pill,
+  TestTube,
+  Stethoscope
 } from "lucide-react";
 import { useState, useEffect } from "react";
+
+interface Category {
+  id: string;
+  label: string;
+  color: string;
+  icon: string;
+}
 
 interface ReportHighlight {
   id: string;
   text: string;
-  category: "regulation" | "competition" | "technology" | "market" | "legislation";
+  category: string;
   notebookUrl: string;
   priority?: "high" | "medium" | "low";
 }
@@ -53,8 +64,31 @@ interface UserProfile {
   firstName: string;
   lastName: string;
   position: string;
-  department: "legal" | "marketing" | "sales" | "general";
+  department: "legal" | "marketing" | "sales" | "general" | "medical";
 }
+
+const categoryStyles: Record<string, { selected: string, unselected: string }> = {
+  blue: {
+    selected: "bg-blue-600 text-white border-blue-500 shadow-lg shadow-blue-500/50",
+    unselected: "bg-blue-500/10 text-blue-500 border-blue-500/20 hover:bg-blue-500/20"
+  },
+  purple: {
+    selected: "bg-purple-600 text-white border-purple-500 shadow-lg shadow-purple-500/50",
+    unselected: "bg-purple-500/10 text-purple-500 border-purple-500/20 hover:bg-purple-500/20"
+  },
+  green: {
+    selected: "bg-green-600 text-white border-green-500 shadow-lg shadow-green-500/50",
+    unselected: "bg-green-500/10 text-green-500 border-green-500/20 hover:bg-green-500/20"
+  },
+  orange: {
+    selected: "bg-orange-600 text-white border-orange-500 shadow-lg shadow-orange-500/50",
+    unselected: "bg-orange-500/10 text-orange-500 border-orange-500/20 hover:bg-orange-500/20"
+  },
+  red: {
+    selected: "bg-red-600 text-white border-red-500 shadow-lg shadow-red-500/50",
+    unselected: "bg-red-500/10 text-red-500 border-red-500/20 hover:bg-red-500/20"
+  }
+};
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -69,272 +103,193 @@ export default function Home() {
   const [isRetagDialogOpen, setIsRetagDialogOpen] = useState(false);
   const [retagHighlightId, setRetagHighlightId] = useState<string | null>(null);
   const [reports, setReports] = useState<Report[]>([]);
+
+  const iconMap: Record<string, any> = {
+    Scale,
+    Users,
+    Cpu,
+    BarChart3,
+    Activity,
+    Pill,
+    TestTube,
+    Stethoscope
+  };
   
-  // User profile - in real app this would come from authentication
-  const userProfile: UserProfile = {
-    firstName: "Jan",
-    lastName: "Kowalski",
-    position: "Legal Counsel",
-    department: "legal"
+  // Profile definitions
+  // Profile definitions
+  const profiles: Record<"lawyer" | "doctor", { user: UserProfile, reports: Report[], categories: Category[] }> = {
+    lawyer: {
+      user: {
+        firstName: "Jan",
+        lastName: "Kowalski",
+        position: "Radca Prawny",
+        department: "legal"
+      },
+      categories: [
+        { id: "regulation", label: "Regulacje Prawne", color: "blue", icon: "Scale" },
+        { id: "competition", label: "Zmiany na rynku", color: "purple", icon: "Users" },
+        { id: "technology", label: "Nowa Technologia", color: "green", icon: "Cpu" },
+        { id: "market", label: "Rynek", color: "orange", icon: "BarChart3" }
+      ],
+      reports: [
+        {
+          id: "1",
+          title: "Popołudniowy Raport Dnia 24.10",
+          date: "2025-10-24",
+          time: "14:08",
+          preview: "UC71 – zmiany w projekcie ustawy o systemach AI...",
+          isRead: false,
+          priority: "high",
+          highlights: [
+            {
+              id: "h1",
+              text: "Nowe przepisy wprowadzają obowiązkową cyfryzację komunikacji z sądami cywilnymi poprzez Portal Informacyjny. Od marca 2027 roku wnoszenie pism drogą elektroniczną będzie obligatoryjne dla wszystkich profesjonalnych pełnomocników.",
+              category: "regulation",
+              notebookUrl: "http://10.19.200.222:8080",
+              priority: "high"
+            },
+            {
+              id: "h2",
+              text: "Orange Polska uruchomiło agresywną kampanię cenową - obniżka o 30% w segmencie korporacyjnym, bezpośrednie zagrożenie dla naszej bazy B2B",
+              category: "competition",
+              notebookUrl: "http://10.19.200.222:8080",
+              priority: "high"
+            },
+            {
+              id: "h3",
+              text: "Nowelizacja prawa telekomunikacyjnego wchodzi w życie od przyszłego miesiąca - konieczność dostosowania regulaminów.",
+              category: "regulation",
+              notebookUrl: "http://10.19.200.222:8080",
+              priority: "medium"
+            },
+            {
+              id: "h4",
+              text: "UOKiK wszczął postępowanie wyjaśniające w sprawie praktyk rynkowych konkurencji.",
+              category: "competition",
+              notebookUrl: "http://10.19.200.222:8080",
+              priority: "low"
+            }
+          ]
+        },
+        {
+          id: "2",
+          title: "Poranny Raport Dnia 24.10",
+          date: "2025-10-24",
+          time: "08:15",
+          preview: "Analiza rynku i monitoring działań konkurencji...",
+          isRead: false,
+          priority: "medium",
+          highlights: [
+            {
+              id: "h6",
+              text: "T-Mobile zaprezentowało nową ofertę dla małych firm - pakiet voice + data + Microsoft 365 za 89 zł/msc.",
+              category: "competition",
+              notebookUrl: "http://10.19.200.222:8080",
+              priority: "medium"
+            },
+            {
+              id: "h8",
+              text: "UKE planuje konsultacje publiczne dotyczące nowych przepisów o numeracji telefonicznej.",
+              category: "regulation",
+              notebookUrl: "http://10.19.200.222:8080",
+              priority: "low"
+            },
+            {
+              id: "h9",
+              text: "Zmiany w prawie pracy dotyczące pracy zdalnej - wpływ na wewnętrzne regulacje firmy.",
+              category: "regulation",
+              notebookUrl: "http://10.19.200.222:8080",
+              priority: "high"
+            }
+          ]
+        }
+      ]
+    },
+    doctor: {
+      user: {
+        firstName: "Anna",
+        lastName: "Nowak",
+        position: "Lekarz Specjalista",
+        department: "medical"
+      },
+      categories: [
+        { id: "medical_regulation", label: "Regulacje Medyczne", color: "blue", icon: "Scale" },
+        { id: "epidemiology", label: "Epidemiologia", color: "red", icon: "Activity" },
+        { id: "pharmacy", label: "Farmakologia", color: "green", icon: "Pill" },
+        { id: "research", label: "Badania", color: "purple", icon: "TestTube" }
+      ],
+      reports: [
+        {
+          id: "d1",
+          title: "Raport Medyczny - Poranny Obchód",
+          date: "2025-10-24",
+          time: "07:30",
+          preview: "Stan pacjentów stabilny, nowe wytyczne dot. antybiotykoterapii...",
+          isRead: false,
+          priority: "high",
+          highlights: [
+            {
+              id: "dh1",
+              text: "Nowe wytyczne Ministerstwa Zdrowia dotyczące stosowania antybiotyków w infekcjach górnych dróg oddechowych.",
+              category: "medical_regulation",
+              notebookUrl: "#",
+              priority: "high"
+            },
+            {
+              id: "dh2",
+              text: "Wzrost liczby przypadków grypy w regionie - zalecane zwiększenie środków ostrożności.",
+              category: "epidemiology",
+              notebookUrl: "#",
+              priority: "high"
+            },
+            {
+              id: "dh3",
+              text: "Dostępność nowego leku na nadciśnienie w aptece szpitalnej.",
+              category: "pharmacy",
+              notebookUrl: "#",
+              priority: "medium"
+            }
+          ]
+        },
+        {
+          id: "d2",
+          title: "Przegląd Prasy Medycznej",
+          date: "2025-10-23",
+          time: "18:00",
+          preview: "Nowoczesne metody leczenia cukrzycy typu 2...",
+          isRead: true,
+          priority: "medium",
+          highlights: [
+            {
+              id: "dh4",
+              text: "Publikacja w Lancet o skuteczności nowych agonistów GLP-1.",
+              category: "pharmacy",
+              notebookUrl: "#",
+              priority: "high"
+            },
+            {
+              id: "dh5",
+              text: "Konferencja kardiologiczna w Warszawie - podsumowanie najważniejszych wystąpień.",
+              category: "research",
+              notebookUrl: "#",
+              priority: "low"
+            }
+          ]
+        }
+      ]
+    }
   };
 
-  const initialReports: Report[] = [
-    {
-      id: "1",
-      title: "Daily Afternoon 24.10 Report",
-      date: "2025-10-24",
-      time: "14:08",
-      preview: "UC71 – changes to the draft act on AI systems...",
-      isRead: false,
-      priority: "high",
-      highlights: [
-        {
-          id: "h1",
-          text: "Projekt ustawy o systemach sztucznej inteligencji (UC71) przeszedł do etapu Komitetu do Spraw Europejskich – w nowej wersji zmieniono nazwę organu nadzoru na „Komisję ds. Rozwoju i Bezpieczeństwa Sztucznej Inteligencji” oraz zmodyfikowano tryb powoływania przewodniczącego przez Prezesa Rady Ministrów na wniosek ministra ds. cyfryzacji.",
-          category: "legislation",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "high"
-        },
-        {
-          id: "h2",
-          text: "Orange Polska uruchomiło agresywną kampanię cenową - obniżka o 30% w segmencie korporacyjnym, bezpośrednie zagrożenie dla naszej bazy B2B",
-          category: "competition",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "high"
-        },
-        {
-          id: "h3",
-          text: "Wzrost ruchu data w sieci o 18% w porównaniu do analogicznego okresu roku ubiegłego, głównie streaming wideo i gaming",
-          category: "market",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "medium"
-        },
-        {
-          id: "h4",
-          text: "Zakończono modernizację 35 stacji bazowych w regionie mazowieckim - poprawa parametrów LTE-Advanced o średnio 22%",
-          category: "technology",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "low"
-        },
-        {
-          id: "h5",
-          text: "Awaria głównego centrum danych w Warszawie (DC-WAW-01) trwała 2.5h, wpływ na 15% klientów biznesowych - analiza przyczyn w toku",
-          category: "technology",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "high"
-        }
-      ]
-    },
-    {
-      id: "2",
-      title: "Daily Morning 24.10 Report",
-      date: "2025-10-24",
-      time: "08:15",
-      preview: "Market analysis and competitor activities monitoring...",
-      isRead: false,
-      priority: "medium",
-      highlights: [
-        {
-          id: "h6",
-          text: "T-Mobile zaprezentowało nową ofertę dla małych firm - pakiet voice + data + Microsoft 365 za 89 zł/msc, średnio konkurencyjne",
-          category: "competition",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "medium"
-        },
-        {
-          id: "h7",
-          text: "Rozpoczęcie pilotażu technologii eSIM dla klientów korporacyjnych - 200 uczestników z sektora finansowego i IT",
-          category: "technology",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "medium"
-        },
-        {
-          id: "h8",
-          text: "UKE planuje konsultacje publiczne dotyczące nowych przepisów o numeracji telefonicznej - potencjalny wpływ na systemy billing od Q3 2026",
-          category: "regulation",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "low"
-        },
-        {
-          id: "h9",
-          text: "Plus uruchomił program lojalnościowy z bonusami GB - ryzyko odpływu klientów jeśli nie zareagujemy w ciągu 2 tygodni",
-          category: "competition",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "high"
-        },
-        {
-          id: "h10",
-          text: "NPS (Net Promoter Score) dla segmentu biznesowego wzrósł do 42 (+3 pkt. w ciągu kwartału), poprawa w obszarze obsługi klienta",
-          category: "market",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "low"
-        }
-      ]
-    },
-    {
-      id: "3",
-      title: "Daily Afternoon 23.10 Report",
-      date: "2025-10-23",
-      time: "14:08",
-      preview: "Routine updates on network performance and customer satisfaction...",
-      isRead: true,
-      priority: "medium",
-      highlights: [
-        {
-          id: "h11",
-          text: "Spadek dostępności sieci w godzinach szczytu w 5 dużych miastach - wymaga natychmiastowej analizy i działań naprawczych",
-          category: "technology",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "high"
-        },
-        {
-          id: "h12",
-          text: "Plus Biznes ogłosiło partnership z SAP Polska - wspólna oferta IoT dla przedsiębiorstw produkcyjnych",
-          category: "competition",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "medium"
-        },
-        {
-          id: "h13",
-          text: "Renegocjacja umów roamingowych z operatorami nordyckimi - potencjalna obniżka kosztów o 12% dla klientów biznesowych",
-          category: "regulation",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "medium"
-        },
-        {
-          id: "h14",
-          text: "Planowane prace konserwacyjne infrastruktury backhaul w województwie podkarpackim - termin: grudzień 2025",
-          category: "technology",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "low"
-        }
-      ]
-    },
-    {
-      id: "4",
-      title: "Daily Morning 23.10 Report",
-      date: "2025-10-23",
-      time: "08:20",
-      preview: "Minor network optimizations and industry news...",
-      isRead: true,
-      priority: "low",
-      highlights: [
-        {
-          id: "h15",
-          text: "Orange i T-Mobile ogłosiły wspólną kampanię Black Friday - agresywne promocje na urządzenia 5G, musimy przygotować odpowiedź do końca tygodnia",
-          category: "competition",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "high"
-        },
-        {
-          id: "h16",
-          text: "Zakończono modernizację 50 stacji bazowych w regionie śląskim - poprawa parametrów LTE-Advanced o średnio 25%",
-          category: "technology",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "low"
-        },
-        {
-          id: "h17",
-          text: "Wzrost liczby reklamacji dotyczących jakości połączeń głosowych o 8% m/m - wymaga analizy i planu działania",
-          category: "market",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "medium"
-        },
-        {
-          id: "h18",
-          text: "UKE opublikowało raport kwartalny: Play utrzymał 3. pozycję pod względem liczby abonentów (23.5% udziału w rynku)",
-          category: "market",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "low"
-        }
-      ]
-    },
-    {
-      id: "5",
-      title: "Daily Afternoon 22.10 Report",
-      date: "2025-10-22",
-      time: "14:15",
-      preview: "Strategic insights on 5G expansion and roaming agreements...",
-      isRead: true,
-      priority: "medium",
-      highlights: [
-        {
-          id: "h19",
-          text: "Krytyczny bug w systemie BSS wpływa na prawidłowość naliczania opłat roamingowych - hotfix wymagany w ciągu 24h",
-          category: "technology",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "high"
-        },
-        {
-          id: "h20",
-          text: "Orange i T-Mobile rozpoczęły wspólną kampanię edukacyjną na temat 5G SA (Standalone) - próba kształtowania oczekiwań rynku przed naszym launch",
-          category: "competition",
-          notebookUrl: "20",
-          priority: "medium"
-        },
-        {
-          id: "h21",
-          text: "Test sieci 5G mmWave w centrum Warszawy zakończony sukcesem - prędkości do 3.2 Gbps, ale ograniczony zasięg (max 200m)",
-          category: "technology",
-          notebookUrl: "21",
-          priority: "low"
-        },
-        {
-          id: "h22",
-          text: "Komitet Europejski pracuje nad nowymi przepisami dot. neutralności sieci - wpływ na model biznesowy możliwy od 2027",
-          category: "regulation",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "low"
-        }
-      ]
-    },
-    {
-      id: "6",
-      title: "Daily Morning 22.10 Report",
-      date: "2025-10-22",
-      time: "08:30",
-      preview: "Customer churn analysis and retention programs...",
-      isRead: true,
-      priority: "low",
-      highlights: [
-        {
-          id: "h23",
-          text: "Wykryto masowy odpływ klientów korporacyjnych do T-Mobile (45 firm w tym tygodniu) - pilne spotkanie z działem retention konieczne",
-          category: "market",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "high"
-        },
-        {
-          id: "h24",
-          text: "Analiza churnu w segmencie MŚP: główne przyczyny odejść to cena (45%) i problemy z zasięgiem (28%) - rekomendacja wzmocnienia programu lojalnościowego",
-          category: "market",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "medium"
-        },
-        {
-          id: "h25",
-          text: "Rozpoczęcie wdrożenia AI chatbota w customer service - pilotaż z 1000 klientów, full rollout planowany na Q2 2026",
-          category: "technology",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "medium"
-        },
-        {
-          id: "h26",
-          text: "UKE opublikowało draft nowych wytycznych dot. transparentności ofert - konsultacje do stycznia 2026",
-          category: "regulation",
-          notebookUrl: "http://10.19.200.222:8080",
-          priority: "low"
-        }
-      ]
-    }
-  ];
+  const [currentProfile, setCurrentProfile] = useState<"lawyer" | "doctor">("lawyer");
 
-  // Initialize reports state on mount
+
+  // Initialize reports state when profile changes
   useEffect(() => {
-    if (reports.length === 0) {
-      setReports(initialReports);
-    }
-  }, []);
+    setReports(profiles[currentProfile].reports);
+    setSelectedCategories([]); // Reset filters
+    setReportDetailCategories([]);
+    setSelectedReport(null); // Reset selection
+  }, [currentProfile]);
 
   // State for selected report - declare before using it
   const [selectedReport, setSelectedReport] = useState<Report | null>(null);
@@ -358,45 +313,38 @@ export default function Home() {
   }, [reports, filteredReports, selectedReport]);
 
   const getCategoryColor = (category: string) => {
-    switch (category) {
-      case "regulation": return "bg-blue-500/20 text-blue-400 border-blue-500/30";
-      case "competition": return "bg-purple-500/20 text-purple-400 border-purple-500/30";
-      case "technology": return "bg-green-500/20 text-green-400 border-green-500/30";
-      case "market": return "bg-orange-500/20 text-orange-400 border-orange-500/30";
-      default: {
-        // Check if it's a subcategory
-        const subcat = subcategories.find(c => c.id === category);
-        if (subcat) {
-          // Return a class that will be overridden by inline style
-          return "bg-gray-500/20 text-gray-400 border-gray-500/30";
-        }
-        return "bg-gray-500/20 text-gray-400 border-gray-500/30";
-      }
+    const profileCategory = profiles[currentProfile].categories.find(c => c.id === category);
+    if (profileCategory) {
+      const color = profileCategory.color;
+      return categoryStyles[color]?.unselected || "bg-gray-500/20 text-gray-400 border-gray-500/30";
     }
+
+    // Check if it's a subcategory
+    const subcat = subcategories.find(c => c.id === category);
+    if (subcat) {
+      // Return a class that will be overridden by inline style
+      return "bg-gray-500/20 text-gray-400 border-gray-500/30";
+    }
+    return "bg-gray-500/20 text-gray-400 border-gray-500/30";
   };
 
   const getCategoryLabel = (category: string) => {
-    switch (category) {
-      case "regulation": return "Regulacje Prawne";
-      case "competition": return "Konkurencja";
-      case "technology": return "Nowa Technologia";
-      case "market": return "Rynek";
-      default: {
-        // Check if it's a subcategory
-        const subcat = subcategories.find(c => c.id === category);
-        return subcat ? subcat.name : category;
-      }
+    const profileCategory = profiles[currentProfile].categories.find(c => c.id === category);
+    if (profileCategory) {
+      return profileCategory.label;
     }
+    // Check if it's a subcategory
+    const subcat = subcategories.find(c => c.id === category);
+    return subcat ? subcat.name : category;
   };
 
   const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case "regulation": return <Scale className="w-3 h-3" />;
-      case "competition": return <Users className="w-3 h-3" />;
-      case "technology": return <Cpu className="w-3 h-3" />;
-      case "market": return <BarChart3 className="w-3 h-3" />;
-      default: return null;
+    const profileCategory = profiles[currentProfile].categories.find(c => c.id === category);
+    if (profileCategory) {
+      const Icon = iconMap[profileCategory.icon];
+      return Icon ? <Icon className="w-3 h-3" /> : null;
     }
+    return <Sparkles className="w-3 h-3" />;
   };
 
   // Get relevant categories based on user department
@@ -523,17 +471,27 @@ export default function Home() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Play_logo.svg/2560px-Play_logo.svg.png" alt="Play Logo" className="h-8" />
+              {/* Logo removed as requested */}
               <h1 className="text-2xl font-bold text-foreground">
                 Daily Reporter
               </h1>
             </div>
             <div className="flex items-center gap-3">
+              <div className="mr-4">
+                 <select 
+                    className="bg-background border border-input rounded px-2 py-1 text-sm"
+                    value={currentProfile}
+                    onChange={(e) => setCurrentProfile(e.target.value as "lawyer" | "doctor")}
+                 >
+                    <option value="lawyer">Prawnik</option>
+                    <option value="doctor">Lekarz</option>
+                 </select>
+              </div>
               <div className="text-right">
                 <p className="text-sm font-semibold text-foreground">
-                  {userProfile.firstName} {userProfile.lastName}
+                  {profiles[currentProfile].user.firstName} {profiles[currentProfile].user.lastName}
                 </p>
-                <p className="text-xs text-muted-foreground">{userProfile.position}</p>
+                <p className="text-xs text-muted-foreground">{profiles[currentProfile].user.position}</p>
               </div>
               <div className="w-10 h-10 rounded-full bg-gradient-purple flex items-center justify-center">
                 <User className="w-5 h-5 text-white" />
@@ -554,11 +512,11 @@ export default function Home() {
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-2 mb-4">
                   <FileText className="w-5 h-5 text-primary" />
-                  Reports
+                  Raporty
                 </CardTitle>
                 <div className="mb-4">
                   <div className="flex items-center justify-between mb-2">
-                    <p className="text-xs text-muted-foreground">Filter by categories:</p>
+                    <p className="text-xs text-muted-foreground">Filtruj po kategoriach:</p>
                     {selectedCategories.length > 0 && (
                       <Button 
                         size="sm" 
@@ -566,39 +524,25 @@ export default function Home() {
                         className="h-6 px-2 text-xs"
                         onClick={() => setSelectedCategories([])}
                       >
-                        All Categories
+                        Wszystkie Kategorie
                       </Button>
                     )}
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    <Badge 
-                      onClick={() => toggleCategory("regulation")}
-                      className={`cursor-pointer transition-all ${selectedCategories.includes("regulation") ? "bg-blue-600 text-white border-blue-500 shadow-lg shadow-blue-500/50" : "bg-blue-500/10 text-blue-400/50 border-blue-500/20 hover:bg-blue-500/20"}`}
-                    >
-                      <Scale className="w-3 h-3 mr-1" />
-                      Regulacje Prawne
-                    </Badge>
-                    <Badge 
-                      onClick={() => toggleCategory("competition")}
-                      className={`cursor-pointer transition-all ${selectedCategories.includes("competition") ? "bg-purple-600 text-white border-purple-500 shadow-lg shadow-purple-500/50" : "bg-purple-500/10 text-purple-400/50 border-purple-500/20 hover:bg-purple-500/20"}`}
-                    >
-                      <Users className="w-3 h-3 mr-1" />
-                      Konkurencja
-                    </Badge>
-                    <Badge 
-                      onClick={() => toggleCategory("technology")}
-                      className={`cursor-pointer transition-all ${selectedCategories.includes("technology") ? "bg-green-600 text-white border-green-500 shadow-lg shadow-green-500/50" : "bg-green-500/10 text-green-400/50 border-green-500/20 hover:bg-green-500/20"}`}
-                    >
-                      <Cpu className="w-3 h-3 mr-1" />
-                      Nowa Technologia
-                    </Badge>
-                    <Badge 
-                      onClick={() => toggleCategory("market")}
-                      className={`cursor-pointer transition-all ${selectedCategories.includes("market") ? "bg-orange-600 text-white border-orange-500 shadow-lg shadow-orange-500/50" : "bg-orange-500/10 text-orange-400/50 border-orange-500/20 hover:bg-orange-500/20"}`}
-                    >
-                      <BarChart3 className="w-3 h-3 mr-1" />
-                      Rynek
-                    </Badge>
+                    {profiles[currentProfile].categories.map(category => {
+                      const Icon = iconMap[category.icon];
+                      const styles = categoryStyles[category.color];
+                      return (
+                        <Badge 
+                          key={category.id}
+                          onClick={() => toggleCategory(category.id)}
+                          className={`cursor-pointer transition-all ${selectedCategories.includes(category.id) ? styles.selected : styles.unselected}`}
+                        >
+                          {Icon && <Icon className="w-3 h-3 mr-1" />}
+                          {category.label}
+                        </Badge>
+                      );
+                    })}
                     {subcategories.map(cat => (
                       <Badge 
                         key={cat.id}
@@ -633,52 +577,51 @@ export default function Home() {
                         className="w-full mt-2 border-dashed border-primary/30 hover:border-primary/50"
                       >
                         <Sparkles className="w-3 h-3 mr-2" />
-                        Add Subcategory
+                        Dodaj podkategorię
                       </Button>
                     </DialogTrigger>
                     <DialogContent>
                       <DialogHeader>
-                        <DialogTitle>Add Subcategory</DialogTitle>
+                        <DialogTitle>Dodaj Podkategorię</DialogTitle>
                         <DialogDescription>
-                          Create a more specific subcategory under an existing category to better organize your reports.
+                          Stwórz bardziej szczegółową podkategorię w ramach istniejącej kategorii, aby lepiej organizować raporty.
                         </DialogDescription>
                       </DialogHeader>
                       <div className="space-y-4 pt-4">
                         <div>
-                          <Label htmlFor="parent-category">Parent Category</Label>
+                          <Label htmlFor="parent-category">Kategoria Nadrzędna</Label>
                           <select
                             id="parent-category"
                             value={newCategoryParent}
                             onChange={(e) => setNewCategoryParent(e.target.value)}
                             className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
                           >
-                            <option value="regulation">Regulacje Prawne (Law)</option>
-                            <option value="competition">Konkurencja (Competition)</option>
-                            <option value="technology">Nowa Technologia (Technology)</option>
-                            <option value="market">Rynek (Market)</option>
+                            {profiles[currentProfile].categories.map(category => (
+                              <option key={category.id} value={category.id}>{category.label}</option>
+                            ))}
                           </select>
                         </div>
                         <div>
-                          <Label htmlFor="subcategory-name">Subcategory Name</Label>
+                          <Label htmlFor="subcategory-name">Nazwa Podkategorii</Label>
                           <Input
                             id="subcategory-name"
-                            placeholder="e.g., Financial Law, Labor Law"
+                            placeholder="np. Prawo Finansowe, Prawo Pracy"
                             value={newCategoryName}
                             onChange={(e) => setNewCategoryName(e.target.value)}
                             onKeyDown={(e) => e.key === 'Enter' && handleAddSubcategory()}
                           />
                         </div>
                         <div>
-                          <Label htmlFor="subcategory-description">Description (Optional)</Label>
+                          <Label htmlFor="subcategory-description">Opis (Opcjonalne)</Label>
                           <Input
                             id="subcategory-description"
-                            placeholder="Briefly describe what this subcategory covers"
+                            placeholder="Krótki opis czego dotyczy ta podkategoria"
                             value={newCategoryDescription}
                             onChange={(e) => setNewCategoryDescription(e.target.value)}
                           />
                         </div>
                         <div>
-                          <Label htmlFor="subcategory-color">Subcategory Color</Label>
+                          <Label htmlFor="subcategory-color">Kolor Podkategorii</Label>
                           <div className="flex gap-2 items-center">
                             <Input
                               id="subcategory-color"
@@ -691,7 +634,7 @@ export default function Home() {
                           </div>
                         </div>
                         <Button onClick={handleAddSubcategory} className="w-full">
-                          Add Subcategory
+                          Dodaj Podkategorię
                         </Button>
                       </div>
                     </DialogContent>
@@ -700,7 +643,7 @@ export default function Home() {
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input
-                    placeholder="Search reports..."
+                    placeholder="Szukaj raportów..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-10 glass border-primary/30"
@@ -730,7 +673,7 @@ export default function Home() {
                     <div className="flex items-center gap-2 mt-2 flex-wrap">
                       {!report.isRead && (
                         <Badge variant="secondary" className="text-xs bg-primary/20 text-primary border-primary/30">
-                          New
+                          Nowy
                         </Badge>
                       )}
                       {report.highlights.slice(0, 3).map((h) => (
@@ -763,7 +706,7 @@ export default function Home() {
                   </div>
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <p className="text-xs text-muted-foreground">Filter highlights:</p>
+                      <p className="text-xs text-muted-foreground">Filtruj podświetlenia:</p>
                       {reportDetailCategories.length > 0 && (
                         <Button 
                           size="sm" 
@@ -771,58 +714,27 @@ export default function Home() {
                           className="h-6 px-2 text-xs"
                           onClick={() => setReportDetailCategories([])}
                         >
-                          All Categories
+                          Wszystkie Kategorie
                         </Button>
                       )}
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {/* Dynamically show only categories present in this report */}
                       {Array.from(new Set(selectedReport.highlights.map(h => h.category))).map(category => {
-                        const isDefaultCategory = ["regulation", "competition", "technology", "market"].includes(category);
+                        const profileCategory = profiles[currentProfile].categories.find(c => c.id === category);
                         const customCat = subcategories.find(c => c.id === category);
                         
-                        if (category === "regulation") {
+                        if (profileCategory) {
+                          const Icon = iconMap[profileCategory.icon];
+                          const styles = categoryStyles[profileCategory.color];
                           return (
                             <Badge 
                               key={category}
                               onClick={() => toggleReportDetailCategory(category)}
-                              className={`cursor-pointer transition-all ${reportDetailCategories.includes(category) ? "bg-blue-600 text-white border-blue-500 shadow-lg shadow-blue-500/50" : "bg-blue-500/10 text-blue-400/50 border-blue-500/20 hover:bg-blue-500/20"}`}
+                              className={`cursor-pointer transition-all ${reportDetailCategories.includes(category) ? styles.selected : styles.unselected}`}
                             >
-                              <Scale className="w-3 h-3 mr-1" />
-                              Regulacje Prawne
-                            </Badge>
-                          );
-                        } else if (category === "competition") {
-                          return (
-                            <Badge 
-                              key={category}
-                              onClick={() => toggleReportDetailCategory(category)}
-                              className={`cursor-pointer transition-all ${reportDetailCategories.includes(category) ? "bg-purple-600 text-white border-purple-500 shadow-lg shadow-purple-500/50" : "bg-purple-500/10 text-purple-400/50 border-purple-500/20 hover:bg-purple-500/20"}`}
-                            >
-                              <Users className="w-3 h-3 mr-1" />
-                              Konkurencja
-                            </Badge>
-                          );
-                        } else if (category === "technology") {
-                          return (
-                            <Badge 
-                              key={category}
-                              onClick={() => toggleReportDetailCategory(category)}
-                              className={`cursor-pointer transition-all ${reportDetailCategories.includes(category) ? "bg-green-600 text-white border-green-500 shadow-lg shadow-green-500/50" : "bg-green-500/10 text-green-400/50 border-green-500/20 hover:bg-green-500/20"}`}
-                            >
-                              <Cpu className="w-3 h-3 mr-1" />
-                              Nowa Technologia
-                            </Badge>
-                          );
-                        } else if (category === "market") {
-                          return (
-                            <Badge 
-                              key={category}
-                              onClick={() => toggleReportDetailCategory(category)}
-                              className={`cursor-pointer transition-all ${reportDetailCategories.includes(category) ? "bg-orange-600 text-white border-orange-500 shadow-lg shadow-orange-500/50" : "bg-orange-500/10 text-orange-400/50 border-orange-500/20 hover:bg-orange-500/20"}`}
-                            >
-                              <BarChart3 className="w-3 h-3 mr-1" />
-                              Rynek
+                              {Icon && <Icon className="w-3 h-3 mr-1" />}
+                              {profileCategory.label}
                             </Badge>
                           );
                         } else if (customCat) {
@@ -904,7 +816,7 @@ export default function Home() {
                                       onClick={() => openRetagDialog(highlight.id)}
                                     >
                                       <Tag className="w-3 h-3 mr-1" />
-                                      <span className="text-xs">Re-tag</span>
+                                      <span className="text-xs">Zmień kategorię</span>
                                     </Button>
                                   </div>
                                   <p className="text-foreground mb-3 leading-relaxed">
@@ -914,10 +826,10 @@ export default function Home() {
                                     size="sm"
                                     variant="ghost"
                                     className="text-primary hover:text-primary hover:bg-primary/10 group-hover:translate-x-1 transition-transform"
-                                    onClick={() => window.open(highlight.notebookUrl, "_blank")}
+                                    onClick={() => window.open("http://10.250.193.60:8081/", "_blank")}
                                   >
                                     <Sparkles className="w-4 h-4 mr-2" />
-                                    Ask for more explanation
+                                    Poproś o wyjaśnienie
                                     <ChevronRight className="w-4 h-4 ml-1" />
                                   </Button>
                                 </div>
@@ -964,7 +876,7 @@ export default function Home() {
                                       onClick={() => openRetagDialog(highlight.id)}
                                     >
                                       <Tag className="w-3 h-3 mr-1" />
-                                      <span className="text-xs">Re-tag</span>
+                                      <span className="text-xs">Zmień kategorię</span>
                                     </Button>
                                   </div>
                                   <p className="text-foreground mb-3 leading-relaxed">
@@ -974,10 +886,10 @@ export default function Home() {
                                     size="sm"
                                     variant="ghost"
                                     className="text-primary hover:text-primary hover:bg-primary/10 group-hover:translate-x-1 transition-transform"
-                                    onClick={() => window.open(highlight.notebookUrl, "_blank")}
+                                    onClick={() => window.open("http://10.250.193.60:8081/", "_blank")}
                                   >
                                     <Sparkles className="w-4 h-4 mr-2" />
-                                    Ask for more explanation
+                                    Poproś o wyjaśnienie
                                     <ChevronRight className="w-4 h-4 ml-1" />
                                   </Button>
                                 </div>
@@ -1024,7 +936,7 @@ export default function Home() {
                                       onClick={() => openRetagDialog(highlight.id)}
                                     >
                                       <Tag className="w-3 h-3 mr-1" />
-                                      <span className="text-xs">Re-tag</span>
+                                      <span className="text-xs">Zmień kategorię</span>
                                     </Button>
                                   </div>
                                   <p className="text-foreground mb-3 leading-relaxed">
@@ -1034,10 +946,10 @@ export default function Home() {
                                     size="sm"
                                     variant="ghost"
                                     className="text-primary hover:text-primary hover:bg-primary/10 group-hover:translate-x-1 transition-transform"
-                                    onClick={() => window.open(highlight.notebookUrl, "_blank")}
+                                    onClick={() => window.open("http://10.250.193.60:8081/", "_blank")}
                                   >
                                     <Sparkles className="w-4 h-4 mr-2" />
-                                    Ask for more explanation
+                                    Poproś o wyjaśnienie
                                     <ChevronRight className="w-4 h-4 ml-1" />
                                   </Button>
                                 </div>
@@ -1055,9 +967,9 @@ export default function Home() {
                   <div className="w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-purple-vibrant flex items-center justify-center animate-glow">
                     <Inbox className="w-12 h-12 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">Select a Report</h3>
+                  <h3 className="text-2xl font-bold mb-2">Wybierz Raport</h3>
                   <p className="text-muted-foreground">
-                    Choose a report from the inbox to view its contents and highlights
+                    Wybierz raport ze skrzynki odbiorczej, aby zobaczyć jego treść i podświetlenia
                   </p>
                 </CardContent>
               </Card>
@@ -1070,9 +982,9 @@ export default function Home() {
       <Dialog open={isRetagDialogOpen} onOpenChange={setIsRetagDialogOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Assign Category</DialogTitle>
+            <DialogTitle>Przypisz Kategorię</DialogTitle>
             <DialogDescription>
-              Select a category to assign to this highlight.
+              Wybierz kategorię, którą chcesz przypisać do tego podświetlenia.
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-2 py-4">

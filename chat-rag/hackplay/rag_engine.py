@@ -15,6 +15,11 @@ import re
 class GeminiRAGEngine:
     def __init__(self):
         self.config = Config()
+        if not self.config.GEMINI_API_KEY:
+            print("⚠️ WARNING: GEMINI_API_KEY not found in .env or config.py")
+        
+        # Set GOOGLE_API_KEY for genai (it sometimes looks for this env var)
+        os.environ["GOOGLE_API_KEY"] = self.config.GEMINI_API_KEY or ""
         genai.configure(api_key=self.config.GEMINI_API_KEY)
 
         self.model = genai.GenerativeModel(self.config.GEMINI_MODEL)
@@ -181,7 +186,7 @@ class GeminiRAGEngine:
             except:
                 return "Error: DOC not supported. Convert to DOCX."
 
-        elif ext == 'txt':
+        elif ext in ['txt', 'md']:
             with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
                 return f.read()
 

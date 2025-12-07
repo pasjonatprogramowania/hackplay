@@ -22,7 +22,7 @@ export const LeftPanel = () => {
     <>
       <div className="h-full flex flex-col">
         <div className="p-4 border-b border-[hsl(var(--panel-border))]">
-          <h2 className="font-semibold text-foreground">Source Materials</h2>
+          <h2 className="font-semibold text-foreground">Materiały źródłowe</h2>
         </div>
         
         <div className="flex-1 overflow-y-auto p-2">

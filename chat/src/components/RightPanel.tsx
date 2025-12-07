@@ -1,4 +1,4 @@
-import { Mic, Video, GitCompare } from "lucide-react";
+import { Mic, Video, FileText } from "lucide-react";
 import { useState } from "react";
 import { DetailModal } from "@/components/DetailModal";
 
@@ -9,9 +9,9 @@ interface StudioTool {
 }
 
 const studioTools: StudioTool[] = [
-  { id: "audio", name: "Audio Summary", icon: Mic },
-  { id: "video", name: "Video Summary", icon: Video },
-  { id: "compare", name: "Compare Docs", icon: GitCompare },
+  { id: "audio", name: "Podsumowanie audio", icon: Mic },
+  { id: "presentation", name: "Prezentacja", icon: FileText },
+  { id: "video_player", name: "Wideo", icon: Video },
 ];
 
 export const RightPanel = () => {

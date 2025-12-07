@@ -31,10 +31,10 @@ export const DocumentPreviewModal = ({ document, onClose }: DocumentPreviewModal
               <div className="text-center space-y-4">
                 <div className="text-6xl">📄</div>
                 <p className="text-muted-foreground">
-                  PDF Preview: {document.name}
+                  Podgląd PDF: {document.name}
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  In a full implementation, this would display the PDF content
+                  W pełnej implementacji wyświetlona zostałaby zawartość PDF
                 </p>
               </div>
             </div>
@@ -48,7 +48,7 @@ export const DocumentPreviewModal = ({ document, onClose }: DocumentPreviewModal
                 />
               ) : (
                 <div className="flex items-center justify-center h-full">
-                  <p className="text-muted-foreground">No URL available for preview</p>
+                  <p className="text-muted-foreground">Brak dostępnego adresu URL do podglądu</p>
                 </div>
               )}
             </div>

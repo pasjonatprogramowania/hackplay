@@ -27,7 +27,7 @@ export const ChatInput = ({ onSend }: ChatInputProps) => {
   return (
     <div className="flex gap-3 items-end max-w-5xl mx-auto w-full">
       <Textarea
-        placeholder="Ask follow-up questions or suggest changes..."
+        placeholder="Zadaj pytania uzupełniające lub zasugeruj zmiany..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         onKeyDown={handleKeyDown}

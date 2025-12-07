@@ -22,16 +22,17 @@ export const DetailModal = ({ tool, onClose }: DetailModalProps) => {
     if (tool.id === "audio") {
       return (
         <div className="flex items-center justify-center h-full">
-          <div className="text-center space-y-6 max-w-md">
+          <div className="text-center space-y-6 max-w-md w-full">
             <Icon className="h-16 w-16 text-primary mx-auto" />
             <h3 className="text-xl font-semibold">{tool.name}</h3>
             <div className="space-y-4">
               <AudioPlayer
-                src="/data/audio.mp3"
+                src="/data/Sądowa_cyfryzacja_Koniec_epoki_papieru_dla_prawników.mp3"
                 autoPlay={false}
+                className="rounded-lg overflow-hidden shadow-sm"
               />
               <p className="text-sm text-muted-foreground">
-                Audio summary player for the specified data audio file.
+                Podsumowanie audio zmian w prawie.
               </p>
             </div>
           </div>
@@ -39,45 +40,49 @@ export const DetailModal = ({ tool, onClose }: DetailModalProps) => {
       );
     }
 
-    if (tool.id === "compare") {
-      return (
-        <div className="h-full">
-          <iframe
-            src="https://lawdiff-explorer.lovable.app/"
-            className="w-full h-full border-0 rounded-lg"
-            title="LawDiff Explorer"
-            allow="geolocation; microphone; camera; midi; encrypted-media;"
-          />
-        </div>
-      );
-    }
-
-    if (tool.id === "video") {
-      const images = [
-        { original: "/data/presentation/file_page-0001.jpg", thumbnail: "/data/presentation/file_page-0001.jpg" },
-        { original: "/data/presentation/file_page-0002.jpg", thumbnail: "/data/presentation/file_page-0002.jpg" },
-        { original: "/data/presentation/file_page-0003.jpg", thumbnail: "/data/presentation/file_page-0003.jpg" },
-        { original: "/data/presentation/file_page-0004.jpg", thumbnail: "/data/presentation/file_page-0004.jpg" },
-        { original: "/data/presentation/file_page-0005.jpg", thumbnail: "/data/presentation/file_page-0005.jpg" },
-        { original: "/data/presentation/file_page-0006.jpg", thumbnail: "/data/presentation/file_page-0006.jpg" },
-        { original: "/data/presentation/file_page-0007.jpg", thumbnail: "/data/presentation/file_page-0007.jpg" },
-        { original: "/data/presentation/file_page-0008.jpg", thumbnail: "/data/presentation/file_page-0008.jpg" },
-        { original: "/data/presentation/file_page-0009.jpg", thumbnail: "/data/presentation/file_page-0009.jpg" },
-      ];
+    if (tool.id === "presentation") {
+      const images = Array.from({ length: 11 }, (_, i) => ({
+        original: `/data/pdf/Cyfryzacja_Postępowania_Cywilnego_Obowiązkowy_Portal_Informacyj ${i + 1} of 11.png`,
+        thumbnail: `/data/pdf/Cyfryzacja_Postępowania_Cywilnego_Obowiązkowy_Portal_Informacyj ${i + 1} of 11.png`,
+      }));
 
       return (
         <div className="flex items-center justify-center h-full">
           <div className="w-full h-full flex flex-col">
-            <div className="text-center mb-4">
-              <Icon className="h-8 w-8 text-primary inline-block mr-2" />
+            <div className="text-center mb-4 flex-shrink-0">
+              <Icon className="h-6 w-6 text-primary inline-block mr-2" />
               <h3 className="text-lg font-semibold inline">{tool.name}</h3>
             </div>
-            <div className="flex-1 overflow-auto border rounded-lg bg-white">
+            <div className="flex-1 overflow-hidden border rounded-lg bg-black flex items-center justify-center">
               <ImageGallery
                 items={images}
-                autoPlay={true}
-                slideInterval={3000}
+                autoPlay={false}
+                showPlayButton={true}
+                showFullscreenButton={true}
+                useBrowserFullscreen={false}
               />
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if (tool.id === "video_player") {
+      return (
+        <div className="flex items-center justify-center h-full">
+          <div className="w-full h-full flex flex-col">
+            <div className="text-center mb-4 flex-shrink-0">
+              <Icon className="h-6 w-6 text-primary inline-block mr-2" />
+              <h3 className="text-lg font-semibold inline">{tool.name}</h3>
+            </div>
+            <div className="flex-1 overflow-hidden border rounded-lg bg-black flex items-center justify-center">
+              <video 
+                controls 
+                className="w-full h-full object-contain"
+                src="/data/Zmiany_w_Art.mp4"
+              >
+                Twój przeglądarka nie obsługuje elementu wideo.
+              </video>
             </div>
           </div>
         </div>
@@ -91,8 +96,7 @@ export const DetailModal = ({ tool, onClose }: DetailModalProps) => {
           <Icon className="h-16 w-16 text-primary mx-auto" />
           <h3 className="text-xl font-semibold">{tool.name}</h3>
           <p className="text-muted-foreground">
-            This panel will display detailed information and functionality for {tool.name.toLowerCase()}.
-            Future implementations could include interactive content, visualizations, or embedded applications.
+            Ten panel wyświetli szczegółowe informacje i funkcjonalność dla {tool.name.toLowerCase()}.
           </p>
         </div>
       </div>
@@ -101,8 +105,8 @@ export const DetailModal = ({ tool, onClose }: DetailModalProps) => {
 
   return (
     <Dialog open={true} onOpenChange={onClose}>
-      <DialogContent className={`${tool.id === 'compare' ? 'max-w-full h-screen' : tool.id === 'video' ? 'max-w-6xl' : tool.id === 'audio' ? 'max-w-4xl' : 'max-w-3xl'} ${tool.id === 'compare' ? '' : tool.id === 'video' ? 'h-[95vh]' : tool.id === 'audio' ? 'h-[80vh]' : 'h-[70vh]'}`}>
-        <div className={`${tool.id === 'compare' ? 'flex-1' : tool.id === 'audio' || tool.id === 'video' ? 'flex items-center justify-center h-full' : 'flex-1 overflow-auto border rounded-lg bg-accent/30 p-4'}`}>
+      <DialogContent className={`${tool.id === 'presentation' || tool.id === 'video_player' ? 'max-w-6xl h-[90vh]' : tool.id === 'audio' ? 'max-w-2xl h-auto' : 'max-w-3xl h-[70vh]'}`}>
+        <div className={`${tool.id === 'audio' ? 'h-full p-4' : 'flex-1 h-full overflow-hidden p-4'}`}>
           {renderContent()}
         </div>
       </DialogContent>
